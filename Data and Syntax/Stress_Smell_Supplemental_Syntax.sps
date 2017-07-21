@@ -76,8 +76,18 @@ GLM Cort1 Cort2 Cort3 Cort4 Cort5 Cort6 Cort7 BY Condition
   /WSDESIGN=time 
   /DESIGN=Condition.
 
-*ANOVAs predicting demographic information from scent condition.
+*regression predicting cortisol area under the curve from scent and belief.
 USE ALL.
+REGRESSION
+  /MISSING LISTWISE
+  /STATISTICS COEFF OUTS R ANOVA
+  /CRITERIA=PIN(.05) POUT(.10)
+  /NOORIGIN 
+  /DEPENDENT AUC_I
+  /METHOD=ENTER belief condition.SP condition.UP.
+
+*ANOVAs predicting demographic information from scent condition.
 ONEWAY RS_total AAQ_avoidance AAQ_ambivalence DEMO.6 DEMO.7 DEMO.8 DEMO.11 BFNE BY Condition
   /STATISTICS DESCRIPTIVES 
   /MISSING ANALYSIS.
+
