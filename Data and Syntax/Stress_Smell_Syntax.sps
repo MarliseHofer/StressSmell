@@ -64,9 +64,6 @@ REGRESSION
   /DEPENDENT cort.rec
   /METHOD=ENTER condition.SP condition.UP Cort1.
 
-*meditation analysis syntax is several thousand lines long, so not included..
-*use PROCESS macro.
-
 
 
 
